@@ -28,7 +28,7 @@ func main() {
 		json.NewEncoder(w).Encode(repo)
 	})
 
-	err = http.ListenAndServe(":3000", nil)
+	err = http.ListenAndServe(":3001", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -46,13 +46,13 @@ func cacheData() (DataRepo, error) {
 		return DataRepo{}, err
 	}
 
-	var data NameDay
+	var data []NameDay
 	err = json.Unmarshal(body, &data)
 	if err != nil {
 		return DataRepo{}, err
 	}
 	return DataRepo{
-		Today:     data,
+		Today:     data[0],
 		LastFetch: time,
 	}, nil
 }
