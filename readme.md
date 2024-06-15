@@ -10,7 +10,7 @@ This data is fetched from the backend server
 Expects env variable for declaring backend hostname
 
 ```env
-BACKEND_HOST="dcbackend"
+BACKEND_URL="http://backend:3001"
 ```
 
 ### Backend
@@ -82,4 +82,12 @@ user@node-1:~$ kubectl get nodes
 NAME     STATUS   ROLES           AGE     VERSION
 node-1   Ready    control-plane   3m49s   v1.29.5
 node-2   Ready    <none>          17s     v1.29.5
+```
+
+### Running apps
+
+```bash
+kubectl apply -f backend.yaml
+kubectl apply -f frontend.yaml
+kubectl get services
 ```

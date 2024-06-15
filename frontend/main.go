@@ -53,8 +53,8 @@ func main() {
 }
 
 func fetchData() (DataRepo, error) {
-	serverName := os.Getenv("BACKEND_HOST")
-	endpoint := fmt.Sprintf("http://%s:3001/api/svatek", serverName)
+	backendURL := os.Getenv("BACKEND_URL")
+	endpoint := fmt.Sprintf("%s/api/svatek", backendURL)
 	res, err := http.Get(endpoint)
 	if err != nil {
 		return DataRepo{}, err
