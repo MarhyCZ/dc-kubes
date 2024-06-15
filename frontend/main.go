@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -15,4 +16,10 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+}
+
+func fetchData() {
+	serverName := os.Getenv("BACKEND_HOST")
+	endpoint := fmt.Sprintf("http://%s/api/", serverName)
+	http.Get(endpoint)
 }
