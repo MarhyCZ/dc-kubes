@@ -57,6 +57,10 @@ Duplicate the VM as node-2
 #### Node-1
 
 ```bash
+# This fixes coredns pod error
+systemctl disable systemd-resolved --now
+rm /etc/resolv.conf
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
 mkdir -p $HOME/.kube

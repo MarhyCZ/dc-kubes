@@ -29,6 +29,8 @@ spec:
   selector:
     app: frontend
   type: LoadBalancer
+  externalIPs:
+  - # IP of VM
   ports:
   - protocol: TCP
     port: 80
